@@ -252,4 +252,7 @@ def send_random_post():
 # 9. 主循环：每5分钟发一次
 # ========================================
 if __name__ == "__main__":
-    send_random_post()
+    print("机器人已启动，每5分钟发送一次...")
+    while True:
+        send_random_post()
+        time.sleep(300)
