@@ -1,8 +1,8 @@
 name: 自动发帖
 on:
   schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
+    - cron: '0 */6 * * *'   # 每6小时（UTC时间的0,6,12,18点）自动触发，无缝续命
+  workflow_dispatch:          # 保留手动触发，方便你第一次启动
 
 jobs:
   post:
@@ -19,4 +19,4 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHANNEL_IDS: ${{ secrets.CHANNEL_IDS }}
-        run: python sender.py
+        run: python sender.py   # 这里用你那个带 while True 的脚本
